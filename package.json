@@ -1,0 +1,9 @@
+{
+  "name": "graphql-grpc-sample",
+  "version": "1.0.0",
+  "description": "graphql connect to grpc sample",
+  "main": "index.js",
+  "repository": "https://github.com/ReiiYuki/grapql-grpc-sample.git",
+  "author": "ReiiYuki <voraton.l@ku.th>",
+  "license": "MIT"
+}

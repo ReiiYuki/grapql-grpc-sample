@@ -6,16 +6,12 @@ import {
 import {ResponseType} from '../../types'
 
 export default {
-  name: "addCustomer",
+  name: "addCompany",
   type: ResponseType,
   args: {
     name : {
       name : 'name',
       type : new GraphQLNonNull(GraphQLString)
-    },
-    company : {
-      name : 'company',
-      type : new GraphQLNonNull(GraphQLInt)
     }
   },
   resolve : (root, params) => //TODO

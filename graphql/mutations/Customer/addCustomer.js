@@ -1,13 +1,14 @@
 import {
   GraphQLString,
-	GraphQLInt
-  GraphQLNonNull,
+	GraphQLInt,
+  GraphQLNonNull
 } from 'graphql'
-import {ResponseType} from '../../types'
+import {CustomerResponseType} from '../../types'
+import services from '../../services'
 
 export default {
   name: "addCustomer",
-  type: ResponseType,
+  type: CustomerResponseType,
   args: {
     name : {
       name : 'name',
@@ -18,5 +19,16 @@ export default {
       type : new GraphQLNonNull(GraphQLInt)
     }
   },
-  resolve : (root, params) => //TODO
+  resolve : (root, params) => new Promise(
+		(resolve, reject) => (
+			services.CustomerService.addCustomer({name:params.name, company: params.company}, (err,response) => {
+				if (err) {
+					reject(err)
+				}else {
+					resolve(response)
+				}
+			})
+		)
+	).then((data) => data)
+	.catch((err) => err)
 }

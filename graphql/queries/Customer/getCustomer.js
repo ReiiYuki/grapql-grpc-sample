@@ -1,18 +1,19 @@
 import {
   GraphQLString,
-	GraphQLInt
-  GraphQLNonNull,
+	GraphQLInt,
+  GraphQLNonNull
 } from 'graphql'
 import {CustomerResponseType} from '../../types'
+import {CustomerLoader} from '../../loaders'
 
 export default {
   name: "getCustomer",
   type: CustomerResponseType,
 	args: {
-		id : {
-			name: 'id',
-			type: GraphQLInt
+		name : {
+			name: 'name',
+			type: GraphQLString
 		}
-	}
-  resolve : (root, params) => //TODO
+	},
+  resolve : (root, params) => CustomerLoader.load(params.name)
 }

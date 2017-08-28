@@ -2,17 +2,17 @@ import {
 	GraphQLID,
 	GraphQLObjectType,
 	GraphQLString,
-	GrapQLNonNull
+	GraphQLNonNull
 } from 'graphql'
 
 export default new GraphQLObjectType({
 	name: 'Company',
 	fields: {
 		id: {
-			type: new GrapQLNonNull(GraphQLID)
+			type: new GraphQLNonNull(GraphQLID)
 		},
 		name: {
-			type: new GrapQLNonNull(GraphQLString)
+			type: new GraphQLNonNull(GraphQLString)
 		}
 	}
 })

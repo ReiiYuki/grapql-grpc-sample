@@ -3,21 +3,23 @@ import {
 	GraphQLID,
 	GraphQLString,
 	GrpahQLInt,
-	GrapQLNonNull
+	GraphQLNonNull
 } from 'graphql'
 import CompanyType from './CompanyType'
+import {CompanyLoader} from '../loaders'
 
 export default new GraphQLObjectType({
 	name: 'Customer',
 	fields: {
 		id: {
-			type: new GrapQLNonNull(GraphQLID)
+			type: new GraphQLNonNull(GraphQLID)
 		},
 		name: {
-			type: new GrapQLNonNull(GraphQLString)
+			type: new GraphQLNonNull(GraphQLString)
 		},
 		company: {
-			type: new GrapQLNonNull(CompanyType)
+			type: new GraphQLNonNull(CompanyType),
+			resolve: customer => CompanyLoader.load(customer.company)
 		}
 	}
 })

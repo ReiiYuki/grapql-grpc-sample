@@ -1,9 +1,10 @@
 import {
   GraphQLString,
-	GraphQLInt
-  GraphQLNonNull,
+	GraphQLInt,
+  GraphQLNonNull
 } from 'graphql'
 import {CompanyResponseType} from '../../types'
+import {CompanyLoader} from '../../loaders'
 
 export default {
   name: "getCompany",
@@ -13,6 +14,6 @@ export default {
 			name: 'id',
 			type: GraphQLInt
 		}
-	}
-  resolve : (root, params) => //TODO
+	},
+  resolve : (root, params) => CompanyLoader.load(params.id)
 }

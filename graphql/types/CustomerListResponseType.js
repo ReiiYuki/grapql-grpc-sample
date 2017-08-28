@@ -6,7 +6,7 @@ import CustomerType from './CustomerType'
 import ResponseType from './ResponseType'
 
 export default new GraphQLObjectType({
-	name: 'CompanyListResponse',
+	name: 'CustomerListResponse',
 	fields: {
 		response: {
 			type: ResponseType
